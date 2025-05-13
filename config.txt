@@ -1,0 +1,323 @@
+####################################################################################################
+#####################        Main settings : CHANGE PARAMETERS IF NEEDED         ###################
+#####################   Start any line with # to comment and use default value   ###################
+####################################################################################################
+
+#Graphic mode on (true) or off (false)
+graphic_mode = true
+
+#Data storage and writing
+#data_folder = C:/Users/sanchez/Documents/Projets/VRFish projects/VRFishTracker/Data/
+writing_fish_data = true
+writing_pictures = false
+writing_pdf = true
+writing_trajectories = false
+
+#Simulation time (in seconds)
+sim_time = 7200
+t_min = 120
+
+#Simulator delta time between steps in seconds - default = 30 fps
+dt = 0.03333333
+#dt = 0.01111111
+
+#Arena radius
+arena_radius = 25.0
+
+#Number of fish with each control mode
+nb_fish_network = 1
+nb_fish_replay = 0
+nb_fish_circle = 0
+nb_fish_rosace = 0
+nb_fish_fixed = 0
+nb_fish_2D_model = 0
+nb_fish_3D_model = 1
+
+#######################################
+###  Network controller parameters  ###
+#######################################
+
+#network input controls sim time (yes : true, default : false)
+network_time = false
+
+#######################################
+###  Circle controller parameters   ###
+#######################################
+
+#Id of reference fish to compute z
+circle_fish_ref_id = 0
+
+#Circle radius
+circle_radius = 20.0
+
+#Fixed z (true) or equals z of reference fish (false)
+circle_fixedz = true
+
+#Circle fish z
+circle_zmean = 5.0
+
+#Burst and coast (yes : true, no : false, default : false)
+circle_bc = false
+
+#Continuous movement speed (cm/s)
+circle_v0 = 15.0
+
+#Rotation (clockwise : true, counterclockwise : false)
+circle_reverse = false
+
+#Burst and coast tau0
+circle_tau0 = 0.8
+
+#Burst and coast mean tau
+circle_taumean = 0.825
+
+#Burst and coast minimal tau
+circle_taumin = 0.2
+
+#Burst and coast mean speed
+circle_vmean = 5.0
+
+#Burst and coast min speed
+circle_vmin = 1.0
+
+#Burst and coast cutting speed (kick boundary)
+circle_vcut = 15.0
+
+#######################################
+###  Rosace controller parameters   ###
+#######################################
+
+#Rosace radius
+rosace_L = 20.0
+
+rosace_p = 5
+rosace_q = 2
+
+#Rosace fish z
+rosace_zmean = 5.0
+
+#Continuous movement speed (cm/s)
+rosace_v0 = 8.0
+
+#Rotation (clockwise : true, counterclockwise : false)
+rosace_reverse = false
+
+
+###############################################
+###  Fixed position controller parameters   ###
+###############################################
+
+#Id of reference fish to compute position
+fixed_fish_ref_id = 0
+
+#Fixed z (true) or equals z of reference fish (false)
+bool fixed_fixedz = true;
+
+#Fixed fish z
+fixed_zmean = 6.0
+
+#Distance to reference fish
+fixed_distance = 5.0
+
+#Angle to reference fish in degres
+fixed_angle = 45.0
+
+#######################################
+### 3D Model controller parameters  ###
+#######################################
+
+3D_param_file = Parameters_2_fish-h_05-dt_050.c
+
+#Noise
+sigma_para = 3.3
+sigma_perp = 2.8
+sigma_Z = 2.35
+tau_XY = 0.15
+tau_Z = 0.15
+
+#Speed control 
+C_v_0 = 12
+
+#Average depth control
+C_f_z_0 = 4.67465532
+
+#Attraction range control
+C_f_att_d_1 = 40
+
+#Parameters to control the different interactions
+Coef_Adapt = 0.
+Coef_Friction = 0.5
+Coef_Friction_z = 1.0
+Coef_f_w = 4.5
+Coef_f_rot = 1.0
+Coef_f_z = 1.0
+Coef_f_att = 3.5
+Coef_f_ali = 2.0
+Coef_f_att_z = 2.0
+
+#Interactions
+No_Int = 0
+No_Wall  = 0
+No_Wall_z = 0
+
+#Other parameters
+#Effective distance between the coordinates of the fish and its head
+d_c = 2.5
+
+dBounce = 0.15
+
+#Intensity of the added short range repulsion
+f_c = 2.0
+d_c_att = 4.0
+
+#Water height
+h_water = 14.73
+
+#Bowl geometry : sphere or ellipsoid
+geometry = sphere
+
+#######################################
+### 2D Model controller parameters  ###
+#######################################
+
+#Modele utilise - 0: default, 1: Clement/Mathilde
+model_mode = 0
+
+z0 = 7.0
+zmean = 7.5
+
+#Tau 
+tau0 = 0.8
+taumean = 0.825
+taumin = 0.2
+
+#Speed
+vmean = 15.0
+vmin = 5.0
+#Cutting speed (limit while kicking)
+vcut = 35.0
+
+gamma_rand = 0.3
+gamma_wall = 0.23
+gamma_attraction = 0.3
+gamma_alignement = 0.3
+gamma_sym = 0.0
+gamma_asym = 0.0
+L_ali = 20
+L_att = 20
+A = 3
+
+gamma_r_chi = 0.
+gamma_par_chi = 0.
+gamma_per_chi = 0.
+gamma_z = 0
+gamma_z_par = 0
+
+dc = 1.0
+alpha_w = 0.5
+
+max_kick_computation_tentatives = 1
+
+vmem = 0.9
+vmem_12 = 5
+
+
+#Only model_mode 1
+l_w = 6.0
+epsilon_2 = 0.7
+C = 0.4
+
+#Only model_mode 0
+dw = 6.0
+
+
+#######################################
+###  Replay controller parameters  ###
+#######################################
+
+#File to read for replaying data
+replay_file = fish_N_2_0_5.txt
+
+
+####################################################################################################
+######################      Display settings : DO NOT CHANGE !!!      ##############################
+####################################################################################################
+
+#Window geometry, size of pictures
+window_width = 600
+window_height = 600
+
+#Scaling factor - conversion from meter to pixel - Zoom in or out (lesser is out)
+world_to_pixel = 6
+
+#Use antialiasing to render pictures (true = antialiasing on)
+antialiasing = true
+
+#Indicates if there is a grid to be displayed (true) or not (false)
+grid = false
+
+#Grid square size in real world coordinates (in cm)
+grid_square_size = 20
+
+#Indicates if there is a background to be displayed (true) or not (false)
+background = true
+
+#Dark background on (true) or off (false)
+dark_background = false
+
+#Indicates if there is a fishtank to display
+fishtank = true
+
+#Show fish shape (true)
+show_fish = true
+
+#Fish in white (true) instead of colors (false)
+white_fish = false
+
+#Show fish trajectory (true)
+show_trajectory = false
+
+#Trajectory length
+trajectory_length = 10
+
+#Trajectory width (in pixels)
+trajectory_width = 1
+
+#########################
+#### Camera settings ####
+#########################
+
+#Indicates if the camera follows school barycenter (true) or is fixed (false)
+moving_camera = false
+
+#Change barycenter (false) to distribution discrete center (true)
+init_camera_at_distrib_center = false
+
+#Camera is following focused fish (true)
+follow_fish = false
+
+#Index of focused fish
+focused_fish = 0
+
+################################################
+#### Influencial Neighbors display settings ####
+################################################
+
+#Influencial neighbors on (true) or off (false)
+show_neighbors = false
+
+#Number of influencial neighbors
+k_neighbors = 1
+
+#Neighbors data file
+neighbors_file = N25_K1_focal_neighbor_info.dat
+
+#Index of focal fish to show neighbors
+neighbors_focal_fish = 0
+
+#Max consecutive frames to show neigbors
+neighbors_max_frames = 5
+
+#Put indexes from {1, N} to {0, N-1} in neighbors data file
+fix_neighbors_indexes = true
+
