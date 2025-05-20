@@ -143,25 +143,16 @@ void Controller3D::swim(double dt){
             }
         }
 
-        if (strategy != 1){ //K-MIN
-            std::vector<int> indices(n);
+        std::vector<int> indices(n);
 
+        if (strategy != 1){ //K-MIN
             // Get indices of the K largest values of force_int (order not guaranteed)
             // to obtain the K most influential neighbors
             std::iota(indices.begin(), indices.end(), 0);
             std::partial_sort(indices.begin(), indices.begin() + K, indices.end(),
                               [&force_int](int a, int b) { return force_int[a] > force_int[b]; });
-
-            for (int j = 0; j < K; ++j) {
-                int idx = indices[j];
-                a_x += force_int_x[idx] / renorm_K;
-                a_y += force_int_y[idx] / renorm_K;
-                a_z += force_int_z[idx] / renorm_K;
-            }
         }
         else{ //K-NN
-            std::vector<int> indices(n);
-
             // Get indices of the K smallest NON ZERO values of d_3D (order not guaranteed)
             // to obtain the K nearest neighbors
             for (int i=0; i < d_3D.size(); i++){
@@ -172,13 +163,13 @@ void Controller3D::swim(double dt){
             std::vector<double> tmp_d_3D(d_3D.begin(), d_3D.end());
             std::partial_sort(indices.begin(), indices.begin() + K, indices.end(),
                               [&tmp_d_3D](int a, int b) { return tmp_d_3D[a] < tmp_d_3D[b]; });
+        }
 
-            for (int j = 0; j < K; ++j) {
-                int idx = indices[j];
-                a_x += force_int_x[idx] / renorm_K;
-                a_y += force_int_y[idx] / renorm_K;
-                a_z += force_int_z[idx] / renorm_K;
-            }
+        for (int j = 0; j < K; ++j) {
+            int idx = indices[j];
+            a_x += force_int_x[idx] / renorm_K;
+            a_y += force_int_y[idx] / renorm_K;
+            a_z += force_int_z[idx] / renorm_K;
         }
     }
 
