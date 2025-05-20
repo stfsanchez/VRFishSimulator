@@ -1,0 +1,231 @@
+####################################################################################################
+#####################        Main settings : CHANGE PARAMETERS IF NEEDED         ###################
+####################################################################################################
+
+#Simulator delta time between steps in seconds - default = 30 fps
+dt = 0.03333333
+
+#Arena radius
+arena_radius = 26.0
+
+#Number of fish with each control mode
+nb_fish_network = 1
+nb_fish_replay = 0
+nb_fish_circle = 1
+nb_fish_fixed = 1
+nb_fish_model = 0
+
+#######################################
+###  Network controller parameters  ###
+#######################################
+
+#network input controls sim time (yes : true, default : false)
+network_time = false
+
+#######################################
+###  Circle controller parameters   ###
+#######################################
+
+#Id of reference fish to compute z
+circle_fish_ref_id = 0
+
+#Circle radius
+circle_radius = 24.0
+
+#Fixed z (true) or equals z of reference fish (false)
+circle_fixedz = false
+
+#Circle fish z
+circle_zmean = 5.0
+
+#Burst and coast (yes : true, no : false, default : false)
+circle_bc = false 
+
+#Continuous movement speed
+circle_v0 = 15.0
+
+#Burst and coast tau0
+circle_tau0 = 0.8
+
+#Burst and coast mean tau
+circle_taumean = 0.825
+
+#Burst and coast minimal tau
+circle_taumin = 0.2
+
+#Burst and coast mean speed
+circle_vmean = 43.0
+
+#Burst and coast min speed
+circle_vmin = 1.0
+
+#Burst and coast cutting speed (kick boundary)
+circle_vcut = 35.0
+
+###############################################
+###  Fixed position controller parameters   ###
+###############################################
+
+#Id of reference fish to compute position
+fixed_fish_ref_id = 0
+
+#Fixed z (true) or equals z of reference fish (false)
+bool fixed_fixedz = true;
+
+#Fixed fish z
+fixed_zmean = 6.0
+
+#Distance to reference fish
+fixed_distance = 5.0
+
+#Angle to reference fish in degres
+fixed_angle = 45.0
+
+#######################################
+###   Model controller parameters   ###
+#######################################
+
+#Modele utilise - 0: Guy, 1: Clement
+model_mode = 0
+
+z0 = 7.0
+zmean = 7.5
+
+#Tau 
+tau0 = 0.8
+taumean = 0.825
+taumin = 0.2
+
+#Speed
+vmean = 43.0
+vmin = 1.0
+#Cutting speed (limit while kicking)
+vcut = 35.0
+
+gamma_rand = 0.3
+gamma_wall = 0.23
+gamma_attraction = 0.3
+gamma_alignement = 0.3
+gamma_sym = 0.0
+gamma_asym = 0.0
+L_ali = 20
+L_att = 20
+A = 3
+
+gamma_r_chi = 0.15
+gamma_par_chi = 0.2
+gamma_per_chi = 0.15
+gamma_z = 0
+gamma_z_par = 0
+
+dc = 1.0
+alpha_w = 0.0
+
+max_kick_computation_tentatives = 500
+
+vmem = 0.9
+vmem_12 = 5
+
+
+#Only model_mode 1
+l_w = 0.6
+epsilon_2 = 0.7
+C = 0.4
+
+#Only model_mode 0
+dw = 6.0
+
+
+#######################################
+###  Replay controller parameters  ###
+#######################################
+
+#File to read for replaying data
+replay_file = fish_N_2_0_5.txt
+
+
+####################################################################################################
+######################      Display settings : DO NOT CHANGE !!!      ##############################
+####################################################################################################
+
+#Graphic mode on (true) or off (false)
+graphic_mode = true
+
+#Window geometry, size of pictures
+window_width = 600
+window_height = 600
+
+#Scaling factor - conversion from meter to pixel - Zoom in or out (lesser is out)
+world_to_pixel = 6
+
+#Use antialiasing to render pictures (true = antialiasing on)
+antialiasing = true
+
+#Indicates if there is a grid to be displayed (true) or not (false)
+grid = false
+
+#Grid square size in real world coordinates (in cm)
+grid_square_size = 20
+
+#Indicates if there is a background to be displayed (true) or not (false)
+background = true
+
+#Dark background on (true) or off (false)
+dark_background = false
+
+#Indicates if there is a fishtank to display
+fishtank = true
+
+#Show fish shape (true)
+show_fish = true
+
+#Fish in white (true) instead of colors (false)
+white_fish = false
+
+#Show fish trajectory (true)
+show_trajectory = false
+
+#Trajectory length
+trajectory_length = 10
+
+#Trajectory width (in pixels)
+trajectory_width = 1
+
+#########################
+#### Camera settings ####
+#########################
+
+#Indicates if the camera follows school barycenter (true) or is fixed (false)
+moving_camera = false
+
+#Change barycenter (false) to distribution discrete center (true)
+init_camera_at_distrib_center = false
+
+#Camera is following focused fish (true)
+follow_fish = false
+
+#Index of focused fish
+focused_fish = 0
+
+################################################
+#### Influencial Neighbors display settings ####
+################################################
+
+#Influencial neighbors on (true) or off (false)
+show_neighbors = false
+
+#Number of influencial neighbors
+k_neighbors = 1
+
+#Neighbors data file
+neighbors_file = N25_K1_focal_neighbor_info.dat
+
+#Index of focal fish to show neighbors
+neighbors_focal_fish = 0
+
+#Max consecutive frames to show neigbors
+neighbors_max_frames = 5
+
+#Put indexes from {1, N} to {0, N-1} in neighbors data file
+fix_neighbors_indexes = true
+
